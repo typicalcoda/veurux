@@ -1,0 +1,72 @@
+//Font
+$osans : 'Open Sans', sans-serif;
+
+a{text-decoration:none;}
+body{margin:0;padding:0;background:#2e3138;}
+
+/*	For the Login Page	*/
+.box{
+	background:#2a2d33;
+	width:300px;
+	margin:0 auto;
+	height:500px;
+	text-align:center;
+	margin-top:75px;
+	position:relative;
+	.header{
+		background:#2a2d33;
+		padding:40px 0;
+		margin-bottom:30px;
+		img{
+			display:block;
+			margin:0 auto;
+			padding-bottom:35px;
+		}
+		.title{
+			font-family:$osans;
+			color:#4a4a4a;
+			font-weight:700;
+		}
+	}
+
+	.inputs{
+		padding:0 25px;
+		.input{
+			i{
+				color:#737373;
+			}
+			input{
+				outline:0;
+				padding:10px 0;
+				margin:10px;
+				background:0;
+				border:0;
+				border-bottom:2px solid #29708c;
+				color:#bdbdbd;
+				i{
+					clear:both;
+				}
+			}
+		}
+	}
+
+	.button{
+		margin-bottom:10px;
+		padding-top:10px;
+		padding-bottom:10px;
+		background:#5f885f;
+		color:#bdbdbd;
+		text-transform: uppercase;
+		margin:0 auto;
+		font-family:$osans;
+		font-size:14px;
+		position:relative;
+		top:60px;
+		cursor:pointer;
+		transition:.4s;
+		&:hover{
+			background:#435f43;
+		}
+
+	}
+}

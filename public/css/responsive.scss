@@ -1,0 +1,68 @@
+
+// BIG SCREEN =================
+
+
+
+// TABLET  ====================
+@media #{$tablet}{
+
+	.wrapper{
+		transition:.4s;
+		padding-left:60px;
+	}
+
+	.sidebar{	
+		.big{
+			display:none;
+		} 
+		height:100%;
+		transition:.4s ease-in-out;
+		width:60px;
+		.header{
+			padding-bottom:0;
+			.avatar{
+				height:45px;width:45px;
+				transition:.4s ease-in-out;
+			}
+			.lbl-user{transition:.4s ease-in-out;}
+		}
+		nav{
+			li{
+				a{
+					.badge{position:absolute;left:4px;}
+					text-align:center;
+					padding:0;padding-top:20px;
+					height:60px;
+					transition:.4s ease-in-out;	
+					i{padding:0;font-size:20px }
+				}
+			}
+		}
+	}	
+}
+
+
+// MOBILE =====================
+@media #{$mobile}{
+	.sidebar{.header{padding-top:40px;}
+	.nav li a{padding-top:12px;color:red;}}
+	.burger{display:block}
+	.wrapper{padding:0;}
+	.short-input,.input{width:100%;}
+}
+
+
+@media #{$float}{
+	.icon{transform:none !important; top:5px !important; right:5px !important; i{font-size:30px !important;} .box-title{display:none}}
+}
+
+@media #{$first-break}{
+
+	.tiny{
+		display:inline-block;
+		margin-right:-4px !important;
+		&:nth-of-type(2n+1){border-right:10px solid #dee4e8;}
+		float:none !important;
+		width:50% !important;
+	}
+}

@@ -11,6 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*————————————————————————————————————————————————————————*/
+Route::get('/', 'DashboardController@index');
+
+Route::get('/register', 'RegisterController@index');
+Route::post('/register', 'RegisterController@create');
+
+Route::get('/login', 'SessionController@index');
+Route::post('/login', 'SessionController@create');
+
+Route::get('/logout', 'SessionController@destroy');
+/*————————————————————————————————————————————————————————*/
+
+
+Route::get('/practices', 'PracticeController@index');
+Route::post('/practices', 'PracticeController@create');
+
+
+
+
+
+
+
+
+
+

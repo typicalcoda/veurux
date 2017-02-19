@@ -1,0 +1,11 @@
+body {margin: 0;padding: 0;background: #eef2f5;}
+ul, ol{padding:0;margin:0}
+a,a:active,a:focused,:a:hover{text-decoration: none; }
+
+//$big: "only screen and (min-width : 1362px)";
+$tablet: "only screen and (max-width : 992px) and (min-width : 768px)";
+$mobile: "only screen and (max-width : 768px)";
+$float : "only screen and (max-width : 1300px) and (min-width : 1090px )";
+$first-break : "only screen and (max-width : 1090px)";
+$osans : 'Open Sans', sans-serif;
+$lato : 'Lato', sans-serif;
