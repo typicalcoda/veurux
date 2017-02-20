@@ -20,9 +20,32 @@ table{
 		th,td{
 			text-align:left;
 			padding:5px 10px;
+			&:last-of-type{text-align:right}
 		}
 	}
 	tr:nth-child(2n+1){background:#d1d9de;}
+}
+table tr td > input[type=checkbox]{
+	float:right;
+}
+// Pagination & Counter
+.counter{
+	color: #abb0b3;
+	font-size: 12px;
+	padding-top: 10px;
+}
+.pagination{
+	.active{
+		background: #aeccda;
+		border-radius: 7px;
+	}
+	li{ list-style:none; display:inline-block; 
+		
+		a{
+			padding:5px;
+			margin:0 5px;
+		}
+	}
 }
 
 //	Colours
@@ -36,16 +59,20 @@ table{
 // Alerts
 .alert{
 	margin-bottom:30px;
-	padding: 20px 10px;
+	padding: 0 10px;
 	width: auto;
 	display: inline-block;
 	border-radius: 5px;
+	position:relative;
 	i{
 		border-radius: 50%;padding: 3px 8px;margin-right: 10px;
 	}
 	a{
 		color:inherit;font-weight:800;&:hover{text-decoration:underline;
 		}
+	}
+	p{
+		padding-left:25px;
 	}
 }
 .alert-default{@extend .default;}
@@ -54,8 +81,10 @@ table{
 .alert-yellow{@extend .yellow;}
 .alert-green{@extend .green;}
 .exit-alert{
-	padding-right:10px;
+	position: absolute;
 	cursor:pointer;
+	top:50%;
+	transform:translateY(-50%);
 }
 
 // Buttons

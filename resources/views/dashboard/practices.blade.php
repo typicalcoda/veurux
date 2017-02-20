@@ -22,23 +22,20 @@
 			<label for="name">Address</label>
 			<input type="text" id="address" name="address">
 		</div>
+		
 		<div class="input short-input">
 			<label for="name">Postcode</label>
 			<input type="text" id="postcode" name="postcode">
 		</div>
+
 		<div class="input">
 			<label for="name">Telephone</label>
 			<input type="text" id="telephone" name="telephone">
 		</div>
 		
-		<div class="block">
-			@if($errors->any())
-			<div class="alert alert-red ">
-				<span data-action="hide-alert" class="exit-alert fa fa-remove"></span>
-				<b>Error - </b>{{ $errors->first() }}
-			</div>
-			@endif
-		</div>
+		@if($errors->any())
+		@include('partials.errors')
+		@endif
 
 		<div class="block">
 			<!-- PHP - CONDITIONAL ============================= -->
@@ -50,6 +47,9 @@
 
 
 <h5>All Practices</h5>
+<div class="counter">
+	Total:  {{$practices->count()}} 
+</div>
 
 <div class="block">
 	<table cellpadding=0 cellspacing=0>
@@ -60,6 +60,8 @@
 				<th>Postcode</th>
 				<th>Telephone</th>
 				<th>Options</th>
+				<th>Select<input data-action="check-all" type="checkbox"></th>
+
 			</tr>
 
 			@foreach($practices as $p)
@@ -76,10 +78,15 @@
 						Delete
 					</button>
 				</td>
+				<td><input type="checkbox"></td>
 			</tr>
 			@endforeach
 		</tbody>
 	</table>
 </div>
+
+
+
+
 
 @endsection

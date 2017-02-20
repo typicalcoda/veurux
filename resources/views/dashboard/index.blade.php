@@ -6,11 +6,8 @@
 @section('page-title', 'Dashboard')
 
 <div class="alert alert-blue">
-	<i class="fa fa-info"></i>
-	<span>
-		<strong>Note - </strong>
-		This data is for practices that are either complete, or those whose dates have passed.
-	</span>
+	<span data-action="hide-alert" class="exit-alert fa fa-remove"></span>
+	<p><b>Note - </b>This data is for practices that are either complete, or those whose dates have passed.</p>
 </div>
 
 <canvas id="myChart" width="400" height="100"></canvas>

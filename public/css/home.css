@@ -57,8 +57,28 @@ table {
   table tr th, table tr td {
     text-align: left;
     padding: 5px 10px; }
+    table tr th:last-of-type, table tr td:last-of-type {
+      text-align: right; }
   table tr:nth-child(2n+1) {
     background: #d1d9de; }
+
+table tr td > input[type=checkbox] {
+  float: right; }
+
+.counter {
+  color: #abb0b3;
+  font-size: 12px;
+  padding-top: 10px; }
+
+.pagination .active {
+  background: #aeccda;
+  border-radius: 7px; }
+.pagination li {
+  list-style: none;
+  display: inline-block; }
+  .pagination li a {
+    padding: 5px;
+    margin: 0 5px; }
 
 .blue, .alert-blue, .btn-blue {
   background: #aeccda !important;
@@ -101,10 +121,11 @@ table {
 
 .alert {
   margin-bottom: 30px;
-  padding: 20px 10px;
+  padding: 0 10px;
   width: auto;
   display: inline-block;
-  border-radius: 5px; }
+  border-radius: 5px;
+  position: relative; }
   .alert i {
     border-radius: 50%;
     padding: 3px 8px;
@@ -114,10 +135,14 @@ table {
     font-weight: 800; }
     .alert a:hover {
       text-decoration: underline; }
+  .alert p {
+    padding-left: 25px; }
 
 .exit-alert {
-  padding-right: 10px;
-  cursor: pointer; }
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%); }
 
 .btn {
   border: 0;
@@ -372,11 +397,14 @@ table {
         padding: 0;
         font-size: 20px; } }
 @media only screen and (max-width: 768px) {
-  .sidebar .header {
-    padding-top: 40px; }
-  .sidebar .nav li a {
-    padding-top: 12px;
-    color: red; }
+  .sidebar {
+    opacity: 0;
+    z-index: -1; }
+    .sidebar .header {
+      padding-top: 40px; }
+    .sidebar .nav li a {
+      padding-top: 12px;
+      color: red; }
 
   .burger {
     display: block; }

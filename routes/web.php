@@ -27,6 +27,13 @@ Route::get('/logout', 'SessionController@destroy');
 Route::get('/practices', 'PracticeController@index');
 Route::post('/practices', 'PracticeController@create');
 
+Route::get('/doctors', 'DoctorController@index');
+Route::post('/doctors', 'DoctorController@create');
+
+Route::get('/pickups', 'PickupController@index');
+Route::post('/pickups', 'PickupController@create');
+
+
 
 
 

@@ -22,11 +22,21 @@ class PracticeController extends Controller
 
 		$this->validate(request(), ['name' => 'required|min:2']);
 
+		if (Practice::where('name', '=', request('name'))->exists()) {
+			return back()->withErrors(array(
+
+				'message' => 'Duplicate practice names are not allowed.'
+
+				));
+		}
+
+		dd("It's foyne..");
+
 		Practice::create([
-			'name' => request('name'),
-			'address' => request('address'),
-			'postcode' => request('postcode'),
-			'telephone' => request('telephone'),
+			'name' => trim(request('name')),
+			'address' => trim(request('address')),
+			'postcode' => trim(request('postcode')),
+			'telephone' => trim(request('telephone')),
 			]);
 
 		return redirect('/practices');

@@ -44,7 +44,7 @@
 
 // MOBILE =====================
 @media #{$mobile}{
-	.sidebar{.header{padding-top:40px;}
+	.sidebar{opacity:0;z-index:-1;.header{padding-top:40px;}
 	.nav li a{padding-top:12px;color:red;}}
 	.burger{display:block}
 	.wrapper{padding:0;}

@@ -32,7 +32,6 @@
 					<a href="/pickups"><i class="fa fa-medkit fa-fw"></i><span class="big">Pickup Prescrip.</span><span class="badge" style="background:#ad7a7a">3</span></a>
 				</li>
 
-
 				<li>
 					<a href="/clients"><i class="fa fa-address-book fa-fw"></i><span class="big">Clients</span></a>
 				</li>
