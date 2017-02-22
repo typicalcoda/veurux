@@ -1,6 +1,13 @@
 @extends('dashboard.master')
 
+@section('links')
+<link rel="stylesheet" href="/css/alertify/themes/alertify.core.css">
+<link rel="stylesheet" href="/css/alertify/themes/alertify.bootstrap.css">
+@endsection
+
+
 @section('content')
+
 
 
 @section('page-title','Practices')
@@ -71,12 +78,11 @@
 				<td>{{$p->postcode}}</td>
 				<td>{{$p->telephone}}</td>
 				<td>
-					<button class="btn btn-blue option">
-						Edit
-					</button>
-					<button class="btn btn-red option">
-						Delete
-					</button>
+					<a href=""><button class="btn btn-blue option">edit</button></a>
+					
+
+					<a data-action="confirm-box" href="/practices/delete/{{$p->id}}"><button class="btn btn-red option" data-chosen="{{$p->name}}">delete</button></a>
+
 				</td>
 				<td><input type="checkbox"></td>
 			</tr>
@@ -84,9 +90,10 @@
 		</tbody>
 	</table>
 </div>
+@endsection
 
+@section('scripts')
 
-
-
+<script src="js/alertify/alertify.min.js"></script>
 
 @endsection

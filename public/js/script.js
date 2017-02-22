@@ -41,28 +41,22 @@ $(document).ready(function(){
 
 	});
 	*/
-	$("[data-action=clear]").click(function(){
 
-		$(this).closest("form")[0].reset();
+	//modal
+	$("[data-action=confirm-box]").click(function(e){
+		e.preventDefault();
+		var link = this.href;
+		alertify.set({buttonReverse:true});
+		alertify.confirm("Are you sure you wish to delete the following practice: " + $(this).children(0).attr("data-chosen")+"?" , function (e) {
+			if (e) {
+				window.location = link; 
+			} else {
+					
+			}
+		});
+
 
 	});
-
-
-	$("[data-action=hide-alert]").click(function(){
-
-		$(this).closest(".alert").slideUp();
-
-	});
-
-
-
-	$("[data-action=check-all]").click(function(){
-
-		alert("hue");
-
-	});
-
-
 
 
 

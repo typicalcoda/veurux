@@ -30,7 +30,6 @@ class PracticeController extends Controller
 				));
 		}
 
-		dd("It's foyne..");
 
 		Practice::create([
 			'name' => trim(request('name')),
@@ -40,6 +39,12 @@ class PracticeController extends Controller
 			]);
 
 		return redirect('/practices');
+
+	}
+	public function destroy(Practice $practice){
+	
+		$practice->delete();
+		return back();
 
 	}
 }

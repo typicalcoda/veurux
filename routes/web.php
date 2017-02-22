@@ -27,11 +27,17 @@ Route::get('/logout', 'SessionController@destroy');
 Route::get('/practices', 'PracticeController@index');
 Route::post('/practices', 'PracticeController@create');
 
+// REMEMBER - Dynamic wildcards at the bottom!
+Route::get('/practices/delete/{practice}', 'PracticeController@destroy');
+
+
 Route::get('/doctors', 'DoctorController@index');
 Route::post('/doctors', 'DoctorController@create');
 
+
 Route::get('/pickups', 'PickupController@index');
 Route::post('/pickups', 'PickupController@create');
+
 
 
 

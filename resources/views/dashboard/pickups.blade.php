@@ -181,8 +181,10 @@
 
 			 				<td>{{$p->instructions}}</td>
 			 				<td>
-			 					<button class="btn btn-blue option">edit</button>
-			 					<button class="btn btn-red option">delete</button>
+			 					<a href="#"><button class="btn btn-blue option">edit</button></a>
+			 					<a href="/pickups/delete/{{$p->id}}"><button class="btn btn-red option">delete</button></a>
+			 				
+
 			 				</td>
 
 			 				<td><input type="checkbox"></td>

@@ -52,9 +52,47 @@ table tr td > input[type=checkbox]{
 .blue{background:#aeccda !important; border:1px solid #96c6e4;color:#437ea5;i{background:#7ba8bd;}}
 .yellow{background:#ded9af !important;border:1px solid #d6d1a7;color:#908952;i{background:#cec68a}}
 .red{background:#debaba !important;border:1px solid #c5a5a5;color:#926969;i{background:#cea4a4}}
-.green{background:#b2deb6 !important;border:1px solid #8bda92;color:#5b9261;i{background:#9fd0a3}}
+.green{background:#b2deb6 !important;border:1px solid #a2d2a6;color:#5b9261;i{background:#9fd0a3}}
 .darkblue{background:#437ea5 !important;color:#dadada}
+.gray{background:#babdbf !important;color:#dadada}
 .default{background:#ced4d8 !important;border: 1px solid #bfc4c7;color:#8e8e8e;i{background:#c2c8cc}}
+
+// Modal
+.modal-wrapper{
+	opacity:0; display:none;
+	//basically the black shadow that makes everything else dim
+	.fallbehind{
+		opacity:.8;
+		background:black;
+		position:fixed;
+		bottom:0; top:0; left:0; right:0; 
+		z-index:999;
+	}
+
+	.modal{
+		position: absolute;
+		z-index: 999;
+		background: #eae7e7;
+		height: auto;
+		min-width: 39%;
+		
+		top: 35%;
+		left: 50%;
+		transform: translateX(-50%);
+		border-radius: 5px;
+		h1{
+			padding:30px 20px;
+		}
+		p{padding:5px 20px;}
+
+		.block{
+			padding:20px 20px;
+		}
+
+
+		
+	}
+}
 
 // Alerts
 .alert{
@@ -91,7 +129,7 @@ table tr td > input[type=checkbox]{
 .btn{
 	border:0; outline:0;
 	padding:10px 15px;
-	border-radius:18px;
+	border-radius:5px;
 	margin:1px;
 	transition:.4s;
 
@@ -103,8 +141,18 @@ table tr td > input[type=checkbox]{
 .btn-yellow{@extend .yellow;&:hover{background:darken(#ded9af , 15%) !important;}}
 .btn-green{@extend .green;&:hover{background:darken(#b2deb6, 15%) !important;}}
 .btn-darkblue{@extend .darkblue;&:hover{background:darken(#437ea5, 15%) !important;}}
+.btn-gray{@extend .gray;&:hover{background:darken(#929292, 15%) !important;}}
+.btn-modal{
+	@extend .btn;
+	padding: 15px;
+	font-size: 15px;
+	margin:0;
+	margin-right: 5px;
+	border-radius: 5px;
+
+}
 .option {
-	padding: 8px;
+	padding: 4px;
 	font-size: 10px;
 	text-transform: uppercase;
 }
