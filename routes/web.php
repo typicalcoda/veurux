@@ -29,6 +29,9 @@ Route::post('/practices', 'PracticeController@create');
 
 // REMEMBER - Dynamic wildcards at the bottom!
 Route::get('/practices/delete/{practice}', 'PracticeController@destroy');
+Route::delete('/practices', 'PracticeController@destroyMany');
+
+
 
 
 Route::get('/doctors', 'DoctorController@index');

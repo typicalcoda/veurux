@@ -39,12 +39,29 @@ class PracticeController extends Controller
 			]);
 
 		return redirect('/practices');
-
 	}
+
 	public function destroy(Practice $practice){
-	
+
 		$practice->delete();
+
 		return back();
+	}
+
+
+	//multi-checked deletion
+	public function destroyMany(){
+		
+		$ids = request('practices');
+
+		foreach ($ids as $id => $checkValue) {
+			
+			//delete all practices;
+			Practice::destroy($id);
+		}
+
+		return back();
+		
 
 	}
 }

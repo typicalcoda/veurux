@@ -53,42 +53,64 @@
 </div>
 
 
-<h5>All Practices</h5>
-<div class="counter">
-	Total:  {{$practices->count()}} 
-</div>
+<div>
+	<h5>All Practices</h5>
+	
+	<div class="counter">
+		Total:  {{$practices->count()}}
+	</div>
 
-<div class="block">
-	<table cellpadding=0 cellspacing=0>
-		<tbody>
-			<tr>
-				<th>Practice Name</th>
-				<th>Address</th>
-				<th>Postcode</th>
-				<th>Telephone</th>
-				<th>Options</th>
-				<th>Select<input data-action="check-all" type="checkbox"></th>
 
-			</tr>
+	<div class="table">
+		<form method="post" action="/practices">
+			{{ method_field('DELETE') }}
+			{{ csrf_field() }}
 
-			@foreach($practices as $p)
-			<tr>
-				<td>{{$p->name}}</td>
-				<td>{{$p->address}}</td>
-				<td>{{$p->postcode}}</td>
-				<td>{{$p->telephone}}</td>
-				<td>
-					<a href=""><button class="btn btn-blue option">edit</button></a>
-					
 
-					<a data-action="confirm-box" href="/practices/delete/{{$p->id}}"><button class="btn btn-red option" data-chosen="{{$p->name}}">delete</button></a>
+			<div data-action="mass-delete" class="table-tools">
+				<button type="submit" class="btn btn-red">
+					<i class="fa fa-trash fa-fw">
 
-				</td>
-				<td><input type="checkbox"></td>
-			</tr>
-			@endforeach
-		</tbody>
-	</table>
+					</i>
+				</button>
+			</div>
+
+
+
+			<table cellpadding=0 cellspacing=0>
+				<tbody>
+					<tr>
+						<th>Practice Name</th>
+						<th>Address</th>
+						<th>Postcode</th>
+						<th>Telephone</th>
+						<th>Options</th>
+						<th>Select<input data-action="check-all" type="checkbox"></th>
+
+					</tr>
+
+					@foreach($practices as $p)
+					<tr>
+						<td>{{$p->name}}</td>
+						<td>{{$p->address}}</td>
+						<td>{{$p->postcode}}</td>
+						<td>{{$p->telephone}}</td>
+						<td>
+							<a href=""><button class="btn btn-blue option">edit</button></a>
+							<a data-action="confirm-box" href="/practices/delete/{{$p->id}}">
+								<button class="btn btn-red option" data-chosen="{{$p->name}}">delete</button>
+							</a> 
+						</td>
+						<td>
+							<input data-type="cb-selector" name="practices[{{$p->id}}]" type="checkbox">
+						</td>
+					</tr>
+
+					@endforeach
+				</tbody>
+			</table>
+		</form>
+	</div>
 </div>
 @endsection
 

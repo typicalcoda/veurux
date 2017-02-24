@@ -12,9 +12,10 @@ h4{font-size:18px;}
 h5{font-size:15px;}
 hr{border:0;border-top:1px solid #d0d8de;margin:20px 0;}
 a{text-decoration:none;color:#3498db}
-form{margin:20px 0;display:inline-block}
+form{display:inline-block}
 table{
 	width:100%;
+	
 	tr{
 		th{background:#aeccda;color:#437ea5}
 		th,td{
@@ -28,11 +29,11 @@ table{
 table tr td > input[type=checkbox]{
 	float:right;
 }
-// Pagination & Counter
+// Pagination & Counter (generally table-related items)
 .counter{
 	color: #abb0b3;
 	font-size: 12px;
-	padding-top: 10px;
+	clear:both;
 }
 .pagination{
 	.active{
@@ -47,11 +48,17 @@ table tr td > input[type=checkbox]{
 		}
 	}
 }
+.table-tools{
+	float:right;
+	padding:5px 0;
+	i{background:0 !important;}
+	opacity:0;
+}
 
 //	Colours
 .blue{background:#aeccda !important; border:1px solid #96c6e4;color:#437ea5;i{background:#7ba8bd;}}
 .yellow{background:#ded9af !important;border:1px solid #d6d1a7;color:#908952;i{background:#cec68a}}
-.red{background:#debaba !important;border:1px solid #c5a5a5;color:#926969;i{background:#cea4a4}}
+.red{background:#e6c7c7 !important;border:1px solid #d8bfbf;color:#9a6a6a;i{background:#cea4a4}}
 .green{background:#b2deb6 !important;border:1px solid #a2d2a6;color:#5b9261;i{background:#9fd0a3}}
 .darkblue{background:#437ea5 !important;color:#dadada}
 .gray{background:#babdbf !important;color:#dadada}
@@ -137,7 +144,7 @@ table tr td > input[type=checkbox]{
 }
 .btn-default{@extend .default;&:hover{background:darken(#ced4d8, 15%) !important;}}
 .btn-blue{@extend .blue;&:hover{background:darken(#aeccda, 15%) !important;}}
-.btn-red{@extend .red;&:hover{background:darken(#debaba, 15%) !important;}}
+.btn-red{@extend .red;&:hover{background:darken(#e6c7c7, 15%) !important;}}
 .btn-yellow{@extend .yellow;&:hover{background:darken(#ded9af , 15%) !important;}}
 .btn-green{@extend .green;&:hover{background:darken(#b2deb6, 15%) !important;}}
 .btn-darkblue{@extend .darkblue;&:hover{background:darken(#437ea5, 15%) !important;}}

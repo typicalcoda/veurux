@@ -46,7 +46,6 @@ a {
   color: #3498db; }
 
 form {
-  margin: 20px 0;
   display: inline-block; }
 
 table {
@@ -68,7 +67,7 @@ table tr td > input[type=checkbox] {
 .counter {
   color: #abb0b3;
   font-size: 12px;
-  padding-top: 10px; }
+  clear: both; }
 
 .pagination .active {
   background: #aeccda;
@@ -79,6 +78,13 @@ table tr td > input[type=checkbox] {
   .pagination li a {
     padding: 5px;
     margin: 0 5px; }
+
+.table-tools {
+  float: right;
+  padding: 5px 0;
+  opacity: 0; }
+  .table-tools i {
+    background: 0 !important; }
 
 .blue, .alert-blue, .btn-blue {
   background: #aeccda !important;
@@ -95,9 +101,9 @@ table tr td > input[type=checkbox] {
     background: #cec68a; }
 
 .red, .alert-red, .btn-red {
-  background: #debaba !important;
-  border: 1px solid #c5a5a5;
-  color: #926969; }
+  background: #e6c7c7 !important;
+  border: 1px solid #d8bfbf;
+  color: #9a6a6a; }
   .red i, .alert-red i, .btn-red i {
     background: #cea4a4; }
 
@@ -194,7 +200,7 @@ table tr td > input[type=checkbox] {
   background: #79abc2 !important; }
 
 .btn-red:hover {
-  background: #c58686 !important; }
+  background: #ce9292 !important; }
 
 .btn-yellow:hover {
   background: #c8bf79 !important; }
