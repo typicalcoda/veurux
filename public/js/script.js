@@ -29,9 +29,12 @@ $(document).ready(function(){
 	// Delete Confirm ------------------------------------- //
 	$("[data-action=confirm-box]").click(function(e){
 		e.preventDefault();
+		console.log("ok works at least");
 		var link = this.href;
+		console.log(link + "?");
+
 		alertify.set({buttonReverse:true});
-		alertify.confirm("Are you sure you wish to delete the following practice: <b>" + $(this).children(0).attr("data-chosen")+"</b>?" , function (e) {
+		alertify.confirm("Are you sure you wish to delete the following record: <b>" + $(this).children(0).attr("data-chosen")+"</b>?" , function (e) {
 			if (e) {
 				window.location = link; 
 			} else {

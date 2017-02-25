@@ -42,4 +42,21 @@ class DoctorController extends Controller
 		return back();
 
 	}
+
+	public function destroy(Doctor $doctor)
+	{
+		$doctor->delete();
+		return back();
+	}
+
+	public function destroyMany(){
+
+		foreach(request('doctors') as $id => $checkState)
+			Doctor::destroy($id);
+
+		return back();
+
+
+
+	}
 }

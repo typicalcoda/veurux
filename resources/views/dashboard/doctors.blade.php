@@ -1,5 +1,11 @@
 @extends('dashboard.master')
 
+@section('links')
+<link rel="stylesheet" href="/css/alertify/themes/alertify.core.css">
+<link rel="stylesheet" href="/css/alertify/themes/alertify.bootstrap.css">
+@endsection
+
+
 @section('content')
 
 
@@ -56,35 +62,55 @@
 	Total: {{$doctors->count()}}
 </div>
 <div class="block">
-	<table cellpadding=0 cellspacing=0>
-		<tbody>
-			<tr>
-				<th>Doctor Name</th>
-				<th>Practice</th>
-				<th>Options</th>
-				<th>Select<input data-action="check-all" type="checkbox"></th>
-			</tr>
+	<form method="post" action="/doctors">
+		{{ method_field('DELETE') }}
+		{{ csrf_field() }}
 
-			@foreach($doctors as $d)
 
-			<tr>
-				<td>{{ $d->fullname }}</td>
-				<td>{{ $d->practice->name }}</td>
-				<td>	
-					<button class="btn btn-blue option">
-						Edit
-					</button>
-					<button class="btn btn-red option">
-						Delete
-					</button>
-				</td>
-				<td><input type="checkbox"></td>
-			</tr>
+		<div data-action="mass-delete" class="table-tools">
+			<button type="submit" class="btn btn-red">
+				<i class="fa fa-trash fa-fw">
 
-			@endforeach
-		</tbody>
-	</table>
+				</i>
+			</button>
+		</div>
+
+		<table cellpadding=0 cellspacing=0>
+			<tbody>
+				<tr>
+					<th>Doctor Name</th>
+					<th>Practice</th>
+					<th>Options</th>
+					<th>Select<input data-action="check-all" type="checkbox"></th>
+				</tr>
+
+				@foreach($doctors as $d)
+
+				<tr>
+					<td>{{ $d->fullname }}</td>
+					<td>{{ $d->practice->name }}</td>
+					<td>
+						<a href=""><button class="btn btn-blue option">edit</button></a>
+						<a data-action="confirm-box" href="/doctors/delete/{{$d->id}}">
+							<button class="btn btn-red option" data-chosen="{{$d->fullname}}">delete</button>
+						</a> 
+					</td>
+					<td>
+						<input data-type="cb-selector" name="doctors[{{$d->id}}]" type="checkbox">
+					</td>
+				</tr>
+
+				@endforeach
+			</tbody>
+		</table>
+	</form>
 </div>
 
+
+@endsection
+
+@section('scripts')
+
+<script src="js/alertify/alertify.min.js"></script>
 
 @endsection

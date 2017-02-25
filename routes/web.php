@@ -23,19 +23,20 @@ Route::post('/login', 'SessionController@create');
 Route::get('/logout', 'SessionController@destroy');
 /*————————————————————————————————————————————————————————*/
 
+//--------------------------------------------------//
+#### REMEMBER - Dynamic wildcards at the bottom! #####
+//--------------------------------------------------//
+
 
 Route::get('/practices', 'PracticeController@index');
 Route::post('/practices', 'PracticeController@create');
-
-// REMEMBER - Dynamic wildcards at the bottom!
 Route::get('/practices/delete/{practice}', 'PracticeController@destroy');
 Route::delete('/practices', 'PracticeController@destroyMany');
 
-
-
-
 Route::get('/doctors', 'DoctorController@index');
 Route::post('/doctors', 'DoctorController@create');
+Route::get('/doctors/delete/{doctor}', 'DoctorController@destroy');
+Route::delete('/doctors', 'DoctorController@destroyMany');
 
 
 Route::get('/pickups', 'PickupController@index');
