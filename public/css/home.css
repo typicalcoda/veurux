@@ -67,6 +67,7 @@ table tr td > input[type=checkbox] {
 .counter {
   color: #abb0b3;
   font-size: 12px;
+  padding: 10px 0;
   clear: both; }
 
 .pagination .active {
@@ -81,8 +82,9 @@ table tr td > input[type=checkbox] {
 
 .table-tools {
   float: right;
-  padding: 5px 0;
-  opacity: 0; }
+  padding: 5px 0; }
+  .table-tools .hidden {
+    opacity: 0; }
   .table-tools i {
     background: 0 !important; }
 
@@ -252,6 +254,9 @@ table tr td > input[type=checkbox] {
   width: 100px; }
 
 .full-input {
+  width: 100%; }
+
+.full-w {
   width: 100%; }
 
 .breadcrumb {

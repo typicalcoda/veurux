@@ -62,13 +62,13 @@
 	Total: {{$doctors->count()}}
 </div>
 <div class="block">
-	<form method="post" action="/doctors">
+	<form method="post" action="/doctors" class="full-w">
 		{{ method_field('DELETE') }}
 		{{ csrf_field() }}
 
 
 		<div data-action="mass-delete" class="table-tools">
-			<button type="submit" class="btn btn-red">
+			<button type="submit" class="btn btn-red hidden">
 				<i class="fa fa-trash fa-fw">
 
 				</i>

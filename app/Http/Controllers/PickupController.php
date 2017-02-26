@@ -19,6 +19,7 @@ class PickupController extends Controller
 
 	public function create(){
 
+
 		$this->validate(request(),[
 
 			'fullname' => 'required',
@@ -46,5 +47,20 @@ class PickupController extends Controller
 			]);
 
 		return back();
+	}
+
+	public function destroy(Pickup $pickup){
+		$pickup->delete();
+		return back();
+	}
+
+	public function destroyMany(){
+
+		foreach(request('pickups') as $id => $checkState)
+			echo $id;
+
+		die();
+
+
 	}
 }

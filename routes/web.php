@@ -41,7 +41,8 @@ Route::delete('/doctors', 'DoctorController@destroyMany');
 
 Route::get('/pickups', 'PickupController@index');
 Route::post('/pickups', 'PickupController@create');
-
+Route::get('/pickups/delete/{pickup}', 'PickupController@destroy');
+Route::delete('/pickups', 'PickupController@destroyMany');
 
 
 

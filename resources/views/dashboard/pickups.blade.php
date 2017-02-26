@@ -1,5 +1,10 @@
 @extends('dashboard.master')
 
+@section('links')
+<link rel="stylesheet" href="/css/alertify/themes/alertify.core.css">
+<link rel="stylesheet" href="/css/alertify/themes/alertify.bootstrap.css">
+@endsection
+
 @section('content')
 
 
@@ -98,108 +103,119 @@
 </div>
 
 
+<div class="black">
+	<h5>All Pickup Prescriptions</h5>
+	<div class="counter">
+		Total: {{$doctors->count()}}
+	</div>
 
-<div class="input short-input">
-	<label for="name">Time</label>
-	<select>
-		<option>All</option>
-		<option>Today</option>
-		<option>This week</option>
-		<option>This month</option>
-		<option>This year</option>
-	</select>
-</div>
+	<div class="input short-input">
+		<label for="name">Time</label>
+		<select>
+			<option>All</option>
+			<option>Today</option>
+			<option>This week</option>
+			<option>This month</option>
+			<option>This year</option>
+		</select>
+	</div>
 
-<div class="input short-input">
-	<label for="name">Status</label>
-	<select>
-		<option>All</option>
-		<option>Complete</option>
-		<option>Incomplete</option>
-	</select>
-</div>
+	<div class="input short-input">
+		<label for="name">Status</label>
+		<select>
+			<option>All</option>
+			<option>Complete</option>
+			<option>Incomplete</option>
+		</select>
+	</div>
 
-			<!-- OK so here - you may select a doctor if your filter is a Date i.e. today, this week etc.
-			 however, if you select a practice as your filter, you may only select a relevant doctor from that
-			 particular practice - as it does not make sense to select a practice with an irrelevant doctor
-			 as a filter... further more. If you have selected a doctor, and then wish to view ALL pickups from 
-			 a particular practice, without them being filtered by a doctor, simply set it to none-->
+	<div class="input">
+		<label for="name">Practice</label>
+		<select>
+			<option>All</option>
+			@foreach($practices as $p)
+			<option value={{$p->id}}>{{$p->name}}</option>
+			@endforeach
+		</select>
+	</div>
 
-			 <div class="input">
-			 	<label for="name">Practice</label>
-			 	<select>
-			 		<option>All</option>
-			 		@foreach($practices as $p)
-			 		<option value={{$p->id}}>{{$p->name}}</option>
-			 		@endforeach
-			 	</select>
-			 </div>
-
-			 <div class="input">
-			 	<label for="name">Doctor</label>
-			 	<select>
-			 		<option>All</option>
-			 		@foreach($doctors as $d)
-			 		<option value={{$d->id}}>{{$d->fullname}}</option>
-			 		@endforeach
-			 	</select>
-			 </div>
-
-			 <div class="input">
-			 	<button class="btn btn-darkblue">Print</button>
-			 </div>
-
-			 <div class="block">
-			 	<table cellpadding=0 cellspacing=0>
-			 		<tbody>
-			 			<tr>
-			 				<th>Collection Date</th>
-			 				<th>Name</th>
-			 				<th>Full Address</th>
-			 				<th>Telephone</th>
-			 				<th>Status</th>
-			 				<th width=20%>Instructions</th>
-			 				<th>Options</th>
-			 				<th>Select<input data-action="check-all" type="checkbox"></th>
-			 			</tr>
-
-
-			 			@foreach($pickups as $p)
-			 			<tr>
-			 				<td>{{$p->collection_date}}</td>
-			 				<td>{{$p->client->fullname}}</td>
-			 				<td>{{$p->client->address}}</td>
-			 				<td>{{$p->client->telephone}}</td>
-			 				<td>
-			 					<strong class="{{$p->status == 'Complete' ? 'green' : 'red'}} stamp">
-			 						{{$p->status}}
-			 					</strong>
-			 				</td>
+	<div class="input">
+		<label for="name">Doctor</label>
+		<select>
+			<option>All</option>
+			@foreach($doctors as $d)
+			<option value={{$d->id}}>{{$d->fullname}}</option>
+			@endforeach
+		</select>
+	</div>
 
 
 
-
-			 				<td>{{$p->instructions}}</td>
-			 				<td>
-			 					<a href="#"><button class="btn btn-blue option">edit</button></a>
-			 					<a href="/pickups/delete/{{$p->id}}"><button class="btn btn-red option">delete</button></a>
-			 				
-
-			 				</td>
-
-			 				<td><input type="checkbox"></td>
-			 			</tr>
-
-			 			@endforeach
-			 		</tbody>
-			 	</table>
-			 </div>
+	<div class="block">
+		<form method="post" action="/doctors" class="full-w">
+			{{ method_field('DELETE') }}
+			{{ csrf_field() }}
 
 
-
-
+			<div data-action="mass-delete" class="table-tools">
+				<button type="submit" class="btn btn-red hidden"><i class="fa fa-trash fa-fw"></i></button>
+				<button type="button" class="btn btn-blue"><i class="fa fa-print fa-fw"></i></button>
 			</div>
+			
+			<div class="block">
+				<table cellpadding=0 cellspacing=0>
+					<tbody>
+						<tr>
+							<th>Collection Date</th>
+							<th>Name</th>
+							<th>Full Address</th>
+							<th>Telephone</th>
+							<th>Status</th>
+							<th width=20%>Instructions</th>
+							<th>Options</th>
+							<th>Select<input data-action="check-all" type="checkbox"></th>
+						</tr>
+
+
+						@foreach($pickups as $p)
+						<tr>
+							<td>{{$p->collection_date}}</td>
+							<td>{{$p->client->fullname}}</td>
+							<td>{{$p->client->address}}</td>
+							<td>{{$p->client->telephone}}</td>
+							<td>
+								<strong class="{{$p->status == 'Complete' ? 'green' : 'red'}} stamp">
+									{{$p->status}}
+								</strong>
+							</td>
 
 
 
-			@endsection
+
+							<td>{{$p->instructions}}</td>
+							<td>
+								<a href=""><button class="btn btn-blue option">edit</button></a>
+								<a data-action="confirm-box" href="/pickups/delete/{{$p->id}}">
+									<button class="btn btn-red option" data-chosen="{{$p->collection_date}} for {{$p->client->fullname}}">delete</button>
+								</a> 
+							</td>
+							<td>
+								<input data-type="cb-selector" name="pickups[{{$p->id}}]" type="checkbox">
+							</td>
+						</tr>
+
+						@endforeach
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+
+
+	@endsection
+
+	@section('scripts')
+
+	<script src="js/alertify/alertify.min.js"></script>
+
+	@endsection

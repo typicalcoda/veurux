@@ -33,6 +33,7 @@ table tr td > input[type=checkbox]{
 .counter{
 	color: #abb0b3;
 	font-size: 12px;
+	padding:10px 0;
 	clear:both;
 }
 .pagination{
@@ -51,8 +52,8 @@ table tr td > input[type=checkbox]{
 .table-tools{
 	float:right;
 	padding:5px 0;
+	.hidden{opacity:0;}
 	i{background:0 !important;}
-	opacity:0;
 }
 
 //	Colours
@@ -158,6 +159,7 @@ table tr td > input[type=checkbox]{
 	border-radius: 5px;
 
 }
+
 .option {
 	padding: 4px;
 	font-size: 10px;
@@ -182,14 +184,11 @@ table tr td > input[type=checkbox]{
 	}
 	textarea{padding:10px 15px; width:100%; height:80px;}
 }
-.short-input{
-	width:100px;
-}
-.full-input{
-	width:100%;
-}
+.short-input{width:100px;}
+.full-input{width:100%;}
 
 // Enhancements / Classes
+.full-w{width:100%;}
 .breadcrumb{background:rgba(210, 216, 228, 0.64);padding:11px 15px;border-radius:0;transition:.4s;margin-bottom:20px;position:relative;border-bottom:1px solid rgba(44, 52, 60, 0.07)}
 .big{transition:.4s}
 .no-padding{padding-left:0 !important;}

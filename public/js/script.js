@@ -9,8 +9,6 @@ $(document).ready(function(){
 
 	//  Responsive Menu ----------------------------------- //
 	$(".burger").click(function(){
-		
-
 		var nav = $(".sidebar");
 		if(nav.css("z-index") == "-1"){
 			$(".sidebar").animate({"width":"100%","opacity":"1", "z-index":"10"});
@@ -53,7 +51,8 @@ $(document).ready(function(){
 			this.checked = mainCheck;
 		});
 
-		if(mainCheck) $(".table-tools").animate({"opacity":1}); else $(".table-tools").animate({"opacity":0});});
+		if(mainCheck) 
+			$(".table-tools .hidden").animate({"opacity":1});else $(".table-tools .hidden").animate({"opacity":0});});
 	// -------------------------------------------------------
 
 
@@ -64,7 +63,7 @@ $(document).ready(function(){
 			if(this.checked)
 				counter++;
 		});
-		if(counter >= 2) $(".table-tools").animate({"opacity":1}); else $(".table-tools").animate({"opacity":0});});
+		if(counter >= 2) $(".table-tools .hidden").animate({"opacity":1}); else $(".table-tools .hidden").animate({"opacity":0});});
 	// -------------------------------------------------------
 
 
@@ -77,14 +76,14 @@ $(document).ready(function(){
 			if (e) {
 				thisBtn.closest("form").submit();
 			} 
-		});
-	});
-
+		});});
 	// -------------------------------------------------------
 
+	$("[data-action=clear]").click(function(){
 
+		$(this).closest("form")[0].reset();
 
-
+	});
 
 
 });
