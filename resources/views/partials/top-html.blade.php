@@ -10,7 +10,7 @@
 	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lato:700|Open+Sans" rel="stylesheet">
-	<link href="css/home.css" rel="stylesheet">
+	<link href="{{ asset('css/home.css') }}" rel="stylesheet">
 	@yield('links') <!-- For any additional stylesheets etc -->
 
 	<title>Veurux Application</title>

@@ -10,7 +10,7 @@
 		<div class="content">
 
 			<div class="page-title">
-				<h4><i class="fa fa-@yield('icon')"></i>@yield('page-title')</h4>
+				<h2><i class="fa fa-@yield('icon')"></i>@yield('page-title')</h2>
 				<hr>
 			</div>
 

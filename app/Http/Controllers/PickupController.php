@@ -29,6 +29,8 @@ class PickupController extends Controller
 
 			]);
 
+		
+
 
 		Pickup::create([
 			'client_id' => \App\Client::create([
@@ -56,11 +58,10 @@ class PickupController extends Controller
 
 	public function destroyMany(){
 
-		foreach(request('pickups') as $id => $checkState)
-			echo $id;
-
-		die();
-
-
+		if(request('pickups	')){
+			foreach(request('pickups') as $id => $checkState)
+				Pickup::destroy($id);
+		}
+		return back();
 	}
 }

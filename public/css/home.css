@@ -25,16 +25,11 @@ body, html {
 
 h1, h2, h3, h4, h5, h6 {
   color: #5a5a5a;
-  padding: 0;
+  padding: 5px 0;
   margin: 0;
   font-weight: 500;
-  line-height: 1.1; }
-
-h4 {
-  font-size: 18px; }
-
-h5 {
-  font-size: 15px; }
+  line-height: 1.1;
+  clear: both; }
 
 hr {
   border: 0;
@@ -46,7 +41,8 @@ a {
   color: #3498db; }
 
 form {
-  display: inline-block; }
+  float: left;
+  width: 100%; }
 
 table {
   width: 100%; }
@@ -131,35 +127,42 @@ table tr td > input[type=checkbox] {
   .default i, .alert-default i, .btn-default i {
     background: #c2c8cc; }
 
-.modal-wrapper {
-  opacity: 0;
-  display: none; }
-  .modal-wrapper .fallbehind {
-    opacity: .8;
-    background: black;
-    position: fixed;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999; }
-  .modal-wrapper .modal {
-    position: absolute;
-    z-index: 999;
-    background: #eae7e7;
-    height: auto;
-    min-width: 39%;
-    top: 35%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 5px; }
-    .modal-wrapper .modal h1 {
-      padding: 30px 20px; }
-    .modal-wrapper .modal p {
-      padding: 5px 20px; }
-    .modal-wrapper .modal .block {
-      padding: 20px 20px; }
+/*.modal-wrapper{
+	opacity:0; display:none;
+	//basically the black shadow that makes everything else dim
+	.fallbehind{
+		opacity:.8;
+		background:black;
+		position:fixed;
+		bottom:0; top:0; left:0; right:0; 
+		z-index:999;
+	}
 
+	.modal{
+		position: absolute;
+		z-index: 999;
+		background: #eae7e7;
+		height: auto;
+		min-width: 39%;
+		
+		top: 35%;
+		left: 50%;
+		transform: translateX(-50%);
+		border-radius: 5px;
+		h1{
+			padding:30px 20px;
+		}
+		p{padding:5px 20px;}
+
+		.block{
+			padding:20px 20px;
+			float:left;
+		}
+
+
+		
+	}
+}*/
 .alert {
   margin-bottom: 30px;
   padding: 0 10px;
@@ -229,8 +232,9 @@ table tr td > input[type=checkbox] {
   text-transform: uppercase; }
 
 .input {
-  width: 250px;
-  display: inline-block; }
+  width: 20%;
+  display: inline-block;
+  padding-right: 5px; }
   .input label {
     display: block;
     padding-bottom: 5px;
@@ -292,18 +296,11 @@ table tr td > input[type=checkbox] {
 
 .noselect {
   -webkit-touch-callout: none;
-  /* iOS Safari */
   -webkit-user-select: none;
-  /* Safari */
   -khtml-user-select: none;
-  /* Konqueror HTML */
   -moz-user-select: none;
-  /* Firefox */
   -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-     supported by Chrome and Opera */ }
+  user-select: none; }
 
 .block {
   padding: 10px 0; }
@@ -331,6 +328,9 @@ table tr td > input[type=checkbox] {
 
 .margin-left {
   margin-left: 15px; }
+
+.span {
+  display: inline-block; }
 
 .sidebar {
   background: #363e48;
@@ -418,6 +418,40 @@ table tr td > input[type=checkbox] {
       float: left; }
       .wrapper .content .tiny:not(:last-of-type) {
         margin-right: 5%; }
+
+.profile {
+  padding: 25px 0;
+  float: left; }
+  .profile .title {
+    padding: 10px 0;
+    font-size: 15px;
+    color: #5a5a5a; }
+    .profile .title:after {
+      content: "";
+      background: #d2d5d8;
+      display: block;
+      width: 102px;
+      height: 1px;
+      margin: 5px 0; }
+  .profile .client {
+    display: inline-block;
+    padding-right: 80px; }
+    .profile .client img {
+      width: 215px;
+      float: left; }
+  .profile .client-details, .profile .pickup {
+    float: left; }
+    .profile .client-details li, .profile .pickup li {
+      list-style: none; }
+      .profile .client-details li:not(:first-of-type), .profile .pickup li:not(:first-of-type) {
+        margin: 10px 0; }
+      .profile .client-details li i, .profile .pickup li i {
+        color: #989898;
+        font-size: 15px; }
+      .profile .client-details li span, .profile .pickup li span {
+        padding-left: 15px; }
+  .profile .pickup {
+    float: right; }
 
 @media only screen and (max-width: 992px) and (min-width: 768px) {
   .wrapper {

@@ -79,11 +79,78 @@ $(document).ready(function(){
 		});});
 	// -------------------------------------------------------
 
-	$("[data-action=clear]").click(function(){
+	// Resets Form ---------------------------------------- //
+	$("#btnClear").click(function(){$(this).closest("form")[0].reset();$("#btnClear").text("Clear");$("#btnSubmit").removeClass("btn-darkblue").addClass("btn-green").text("Create")});
+	// -------------------------------------------------------
 
-		$(this).closest("form")[0].reset();
+	// Resets Form ---------------------------------------- //
 
+	$("[data-action=edit]").click(function(){
+
+		var id = $(this)[0].id;
+		console.log(id);
+		var objectsCopy = objects;
+		var obj = {};
+		for (var i = objectsCopy.length - 1; i >= 0; i--) {
+			if(objectsCopy[i][0] == id)
+			{
+				delete objectsCopy[i]['id'];
+				obj = objectsCopy[i];
+				break;
+			}	
+		}
+
+		for (var i = 0; i < Object.keys(obj).length; i++) {
+			$("[editable-id="+	Object.keys(obj)[i]	+"]").val(Object.values(obj)[i]);
+		}
+
+
+		$("#btnSubmit").removeClass("btn-green").addClass("btn-darkblue").text("Update");
+		$("#btnClear").text("Cancel edit");
 	});
 
 
+	if (!Object.keys) {
+		Object.keys = (function() {
+			'use strict';
+			var hasOwnProperty = Object.prototype.hasOwnProperty,
+			hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
+			dontEnums = [
+			'toString',
+			'toLocaleString',
+			'valueOf',
+			'hasOwnProperty',
+			'isPrototypeOf',
+			'propertyIsEnumerable',
+			'constructor'
+			],
+			dontEnumsLength = dontEnums.length;
+
+			return function(obj) {
+				if (typeof obj !== 'function' && (typeof obj !== 'object' || obj === null)) {
+					throw new TypeError('Object.keys called on non-object');
+				}
+
+				var result = [], prop, i;
+
+				for (prop in obj) {
+					if (hasOwnProperty.call(obj, prop)) {
+						result.push(prop);
+					}
+				}
+
+				if (hasDontEnumBug) {
+					for (i = 0; i < dontEnumsLength; i++) {
+						if (hasOwnProperty.call(obj, dontEnums[i])) {
+							result.push(dontEnums[i]);
+						}
+					}
+				}
+				return result;
+			};
+		}());
+	}
+
+
+	// -------------------------------------------------------
 });

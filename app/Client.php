@@ -22,7 +22,7 @@ class Client extends Model
 
 	public function getDobAttribute(){
 		$d = date_create($this->attributes['dob']);
-		return date_format($d, 'dd/m/Y');
+		return date_format($d, 'd/m/Y');
 	}
 
 }

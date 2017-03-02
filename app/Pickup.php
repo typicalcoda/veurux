@@ -33,6 +33,11 @@ class Pickup extends Model
         return "Complete";
     }
 
+    public function setRepeatAttribute($rep){
+        
+        $this->attributes['repeat'] = $rep == "Yes" ? 1 : 0;
+        
+    }
     public function getRepeatAttribute(){
 
         if($this->attributes['repeat'] == "0")
