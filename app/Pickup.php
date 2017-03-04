@@ -15,13 +15,6 @@ class Pickup extends Model
     	return $this->belongsTo('\App\Client');
     }
 
-    public function setCollectionDateAttribute($date){
-
-        $d = date_create_from_format('d/m/Y',$date);
-        $this->attributes['collection_date'] = date_format($d, 'Y/m/d'); 
-    }
-    
-
     public function getCollectionDateAttribute(){
         $d = date_create($this->attributes['collection_date']);
         return date_format($d, 'd/m/Y');
@@ -32,12 +25,6 @@ class Pickup extends Model
             return "Incomplete";
         return "Complete";
     }
-
-    public function setRepeatAttribute($rep){
-        
-        $this->attributes['repeat'] = $rep == "Yes" ? 1 : 0;
-        
-    }
     public function getRepeatAttribute(){
 
         if($this->attributes['repeat'] == "0")
@@ -45,5 +32,18 @@ class Pickup extends Model
         
         return "Yes";
     }
+
+    public function setCollectionDateAttribute($date){
+
+        $d = date_create_from_format('d/m/Y',$date);
+        $this->attributes['collection_date'] = date_format($d, 'Y/m/d'); 
+    }
+    
+    public function setRepeatAttribute($rep){
+
+        $this->attributes['repeat'] = $rep == "Yes" ? 1 : 0;
+        
+    }
+
 
 }

@@ -18,20 +18,6 @@ class PickupController extends Controller
 	}
 
 	public function create(){
-
-
-		$this->validate(request(),[
-
-			'fullname' => 'required',
-			'address' => 'required',
-			'doctor' => 'required',
-			'collection_date' => 'required'
-
-			]);
-
-		
-
-
 		Pickup::create([
 			'client_id' => \App\Client::create([
 				'fullname' => request('fullname'),
@@ -58,10 +44,21 @@ class PickupController extends Controller
 
 	public function destroyMany(){
 
-		if(request('pickups	')){
+		if(request('pickups')){
 			foreach(request('pickups') as $id => $checkState)
 				Pickup::destroy($id);
 		}
 		return back();
+	}
+
+	public function update(Pickup $id){
+		
+		//the pickup being edited is `id` here, basically :P
+
+		$id->client->update(request(['fullname', 'dob', 'address', 'postcode', 'telephone']));
+		$id->update(request(['doctor_id','repeat','no_items','originator','collection_date','instructions']));
+
+		return back();
+
 	}
 }

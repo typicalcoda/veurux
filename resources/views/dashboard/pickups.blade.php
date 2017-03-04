@@ -15,7 +15,7 @@
 <h5 id="title">Add Pickup</h5>
 
 <div class="block">	
-	<form method="POST" action="/pickups" id=editable"">
+	<form method="POST" action="/pickups" id="editable">
 		{{ csrf_field() }}
 		
 		<!-- 1st row of fields -->
@@ -52,7 +52,7 @@
 
 			<div class="input">
 				<label for="doctor">Doctor</label>
-				<select id="doctor" editable-id="6" name="doctor" required>
+				<select id="doctor_id" editable-id="6" name="doctor_id" required>
 					@if(isset($doctors))
 					@foreach($doctors as $d)
 					<option value={{$d->id}}>{{$d->fullname}}, {{$d->practice->name}}</option>
@@ -206,7 +206,7 @@
 
 
 
-							<td>{{$p->instructions}}</td>
+							<td>{{ str_limit($p->instructions, 29) }}</td>
 							<td>
 								<a data-action="edit" id={{$p->id}}><button type="button" class="btn btn-blue option">edit</button></a>
 								<a data-action="confirm-box" href="/pickups/delete/{{$p->id}}">

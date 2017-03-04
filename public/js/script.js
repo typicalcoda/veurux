@@ -80,15 +80,17 @@ $(document).ready(function(){
 	// -------------------------------------------------------
 
 	// Resets Form ---------------------------------------- //
-	$("#btnClear").click(function(){$(this).closest("form")[0].reset();$("#btnClear").text("Clear");$("#btnSubmit").removeClass("btn-darkblue").addClass("btn-green").text("Create")});
+	$("#btnClear").click(function(){$(this).closest("form")[0].reset();$("#btnClear").text("Clear");$("#btnSubmit").removeClass("btn-darkblue").addClass("btn-green").text("Create");$("table tr").each(function(){$(this).removeClass("yellow");});});
 	// -------------------------------------------------------
 
 	// Resets Form ---------------------------------------- //
 
 	$("[data-action=edit]").click(function(){
 
+		$("table tr").each(function(){$(this).removeClass("yellow");});
+
+		$(this).closest("tr").addClass("yellow");
 		var id = $(this)[0].id;
-		console.log(id);
 		var objectsCopy = objects;
 		var obj = {};
 		for (var i = objectsCopy.length - 1; i >= 0; i--) {
@@ -107,6 +109,11 @@ $(document).ready(function(){
 
 		$("#btnSubmit").removeClass("btn-green").addClass("btn-darkblue").text("Update");
 		$("#btnClear").text("Cancel edit");
+
+		console.log("doing it");
+		$("#editable").prepend('<input type="hidden" name="_method" value="PATCH">');
+		$("#editable").attr('action', 'pickups/' + id);
+
 	});
 
 
@@ -153,4 +160,5 @@ $(document).ready(function(){
 
 
 	// -------------------------------------------------------
+
 });
